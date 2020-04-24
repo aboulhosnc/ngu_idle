@@ -4,14 +4,50 @@
 
 def user_choice(user_choice):
     switcher = {
-        5: adventure_alpha_calc,
         1: augment_calc,
+        2: wandoos_calc,
+        3: respawn_calc,
+        4: gold_calc,
+        5: adventure_alpha_calc,
+        7: drop_calc, 
     }
     func = switcher.get(user_choice, lambda: "Invalid User Choice")
     print (func())
     # pass
 
 
+def drop_calc():
+    print("Drop Chance Calculator Choosen\n")
+    
+    print("1: If you want to set a target percentage")
+    print("2: If you want to set a certain amount of levels")
+    user_choice = int(input("What is your pick \n"))
+
+
+    if(user_choice == 1):
+        print("You picked to set a target percentage for Drop Chance")
+        percent = int(input("What target percentage for Drop Chance would you like ? \n"))
+        # percent = 213
+        # percent = percent - 100
+
+        if(percent <= 200):
+            tar_level =  (percent - 100) / 0.1
+        else:
+            tar_level = ((percent - 100) / 3.17) ** (2)
+        
+        return("You will require {} levels for your pick of {} percentage Drop Chance".format(round(tar_level), (percent)))
+        # print("You will require {} levels for your pick of {} percentage adventure stats".format(round(tar_level), (percent)))
+    else:
+        print("You picked to set a target level amount")
+        tar_level = int(input("How many levels do you want input for your choice ? \n"))
+        # tar_level = 1281
+
+        if(tar_level <= 1000):
+            percent = tar_level * 0.1
+        else:
+            percent = (tar_level ** 0.5) * 3.17
+        
+        return("You will get {} drop percentage based on {} levels input".format( round(percent + 100), tar_level))
 
 def adventure_alpha_calc():
     print ("NGU Adventure α Calculator Choosen\n")
@@ -45,6 +81,9 @@ def adventure_alpha_calc():
         
         return("You will get {} adventure percentage based on {} levels input".format( round(percent + 100), tar_level))
     
+
+def gold_calc():
+    pass
 
 def augment_calc():
     print("You have chosen Augment Calculator\n")
@@ -81,7 +120,7 @@ def main():
     print("6: NGU Power α")
     print("7: NGU Drop Chance")
     print("8: NGU  Magic NGU")
-    print("9: NGU PP")
+    print("9: NGU PP\n")
     user_pick = int(input("Pick the Energy Ritual \n"))
     # user_pick = 2
 

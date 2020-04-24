@@ -22,8 +22,8 @@ def pow_tough_calc():
     print("Power Toughness Calculator Chosen")
     print("1: Target Level for Calculator")
     print("2: Percentage Target for Training")
-    # user_choice = int(input("Select Your option\n"))
-    user_choice = 2
+    user_choice = int(input("Select Your option\n"))
+    # user_choice = 2
 
     if(user_choice == 1):
         print("Target Level Calculator Choosen")
